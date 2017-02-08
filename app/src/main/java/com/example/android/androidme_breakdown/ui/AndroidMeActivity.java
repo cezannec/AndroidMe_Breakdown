@@ -18,12 +18,16 @@ package com.example.android.androidme_breakdown.ui;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.FrameLayout;
 
 import com.example.android.androidme_breakdown.R;
 import com.example.android.androidme_breakdown.data.AndroidImageAssets;
 
 public class AndroidMeActivity extends AppCompatActivity {
 
+    // Keep track of the number of clicks
+    private int mClickCount;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,13 +63,37 @@ public class AndroidMeActivity extends AppCompatActivity {
                     .commit();
         }
 
-        // TODO (3) Set up the click listener in onCreate
+        // Sets up the click listener
+        setupHeadClickListener();
     }
 
 
-    // TODO (1) Create a method that attaches a click listener to the head BodyPartFragment
-    // TODO (2) Respond to clicks by replacing the head fragment with the next image in the head assets list
-    // One way to do this is to keep track of the number of clicks and
-    // set the image resource id based on that number
+    // This method attaches a click listener to the head BodyPartFragment
+    // It responds to clicks by replacing the head fragment with the next image in the head assets list
+    void setupHeadClickListener() {
+        FrameLayout headView = (FrameLayout) findViewById(R.id.headContainer);
+
+        // Set a click listener on the head fragment
+        headView.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View view) {
+                // On a click, increase the number of clicks by one
+                mClickCount++;
+
+                // If the click count is a valid index, create a new head fragment
+                if (mClickCount < 12) {
+                    BodyPartFragment headFragment = new BodyPartFragment();
+                    headFragment.setId(AndroidImageAssets.getHeads().get(mClickCount));
+
+                    // Replace the old fragment with this newly created fragment
+                    getSupportFragmentManager().beginTransaction()
+                            .replace(R.id.headContainer, headFragment)
+                            .commit();
+                }
+            }
+
+        });
+    }
 
 }
