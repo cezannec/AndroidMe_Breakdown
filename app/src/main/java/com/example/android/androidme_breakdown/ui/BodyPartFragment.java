@@ -71,5 +71,7 @@ public class BodyPartFragment extends Fragment {
         currentState.putInt(IMG_ID, mImageId);
     }
 
+    // TODO (2) Write a setter method called setId(int id) that sets the image resource id for this fragment
+
 
 }

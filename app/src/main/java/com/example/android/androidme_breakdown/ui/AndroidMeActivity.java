@@ -28,5 +28,14 @@ public class AndroidMeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_android_me);
+
+        // TODO (3) Create new head, body, and leg fragments and add them to this activity
+        // using a fragment manager and fragment transactions
+
+        // This code should add the BodyPartFragments to their containers that were created in step 1
+        // in the activity_android_me.xml layout file
+
+        // If there is no saved fragment state, set the fragment image resource id to be
+        // the first image in the head, body, and leg image lists
     }
 }
