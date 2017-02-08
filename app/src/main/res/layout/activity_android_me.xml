@@ -32,9 +32,27 @@
         android:textSize="20sp"
         android:padding="8dp"/>
 
-    <!-- TODO (1) Add three vertically arranged FrameLayouts; one for each AndroidMe body part fragment -->
+    <!-- Three vertically arranged FrameLayouts; one for each AndroidMe body part fragment -->
     <!-- The three layouts will display the head, body, and legs of an Android -->
     <!-- These FrameLayouts act as fragment containers -->
+
+    <FrameLayout android:id="@+id/headContainer"
+        android:name="com.example.android.androidme_steps1.BodyPartFragment"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
+
+    <FrameLayout android:id="@+id/bodyContainer"
+        android:name="com.example.android.androidme_steps1.BodyPartFragment"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
+
+    <FrameLayout android:id="@+id/legContainer"
+        android:name="com.example.android.androidme_steps1.BodyPartFragment"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
 
 
 </LinearLayout>

@@ -20,6 +20,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 import com.example.android.androidme_breakdown.R;
+import com.example.android.androidme_breakdown.data.AndroidImageAssets;
 
 public class AndroidMeActivity extends AppCompatActivity {
 
@@ -29,13 +30,34 @@ public class AndroidMeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_android_me);
 
-        // TODO (3) Create new head, body, and leg fragments and add them to this activity
-        // using a fragment manager and fragment transactions
-
-        // This code should add the BodyPartFragments to their containers that were created in step 1
-        // in the activity_android_me.xml layout file
 
         // If there is no saved fragment state, set the fragment image resource id to be
         // the first image in the head, body, and leg image lists
+        if (savedInstanceState == null) {
+
+            // Creating a new head BodyPartFragment
+            BodyPartFragment headFragment = new BodyPartFragment();
+            // Setting it's image resource id
+            headFragment.setId(AndroidImageAssets.getHeads().get(0));
+            // Adding the fragment to its container using a transaction
+            getSupportFragmentManager().beginTransaction()
+                    .add(R.id.headContainer, headFragment)
+                    .commit();
+
+            // New body fragment
+            BodyPartFragment bodyFragment = new BodyPartFragment();
+            bodyFragment.setId(AndroidImageAssets.getBods().get(0));
+            getSupportFragmentManager().beginTransaction()
+                    .add(R.id.bodyContainer, bodyFragment)
+                    .commit();
+
+            // New leg fragment
+            BodyPartFragment legFragment = new BodyPartFragment();
+            legFragment.setId(AndroidImageAssets.getLegs().get(0));
+            getSupportFragmentManager().beginTransaction()
+                    .add(R.id.legContainer, legFragment)
+                    .commit();
+        }
     }
+    
 }
