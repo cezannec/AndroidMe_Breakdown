@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">AndroidMe_Breakdown</string>
+
+    <string name="android_me_description">Create Your Own Android!</string>
 </resources>
