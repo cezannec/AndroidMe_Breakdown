@@ -58,6 +58,14 @@ public class AndroidMeActivity extends AppCompatActivity {
                     .add(R.id.legContainer, legFragment)
                     .commit();
         }
+
+        // TODO (3) Set up the click listener in onCreate
     }
-    
+
+
+    // TODO (1) Create a method that attaches a click listener to the head BodyPartFragment
+    // TODO (2) Respond to clicks by replacing the head fragment with the next image in the head assets list
+    // One way to do this is to keep track of the number of clicks and
+    // set the image resource id based on that number
+
 }
