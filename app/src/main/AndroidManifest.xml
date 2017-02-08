@@ -8,6 +8,8 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
+        <!-- TODO (3) Maintain the backstack of fragments during configuration changes -->
         <activity android:name=".ui.AndroidMeActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
