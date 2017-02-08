@@ -23,6 +23,11 @@ import com.example.android.androidme_breakdown.R;
 
 public class AndroidMeActivity extends AppCompatActivity {
 
+    // TODO (1) Create a new class called BodyPartFragment that holds one image of an AndroidMe body part
+    // In the fragment class, you'll need to implement an empty constructor, onCreateView,
+    // and onSaveInstanceState methods
+    // TODO (2) Create the corresponding fragment_body_part.xml layout file
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
