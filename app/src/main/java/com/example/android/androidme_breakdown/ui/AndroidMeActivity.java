@@ -86,9 +86,10 @@ public class AndroidMeActivity extends AppCompatActivity {
                     BodyPartFragment headFragment = new BodyPartFragment();
                     headFragment.setId(AndroidImageAssets.getHeads().get(mClickCount));
 
-                    // TODO (1) Make this transaction "undoable" by adding the fragment to the backStack
+                    // Make this transaction "undoable" by adding the fragment to the backStack
                     getSupportFragmentManager().beginTransaction()
-                            .replace(R.id.headContainer, headFragment)
+                            .add(R.id.headContainer, headFragment)
+                            .addToBackStack(null)
                             .commit();
                 }
             }
@@ -96,6 +97,11 @@ public class AndroidMeActivity extends AppCompatActivity {
         });
     }
 
-    // TODO (2) Override the onBackPressed method and decrement the click count
+    // Override the onBackPressed method and decrement the click count
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        mClickCount--;
+    }
 
 }
