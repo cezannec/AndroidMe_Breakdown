@@ -52,6 +52,11 @@ public class ListFragment extends Fragment {
         // Set the adapter on the GridView
         gridView.setAdapter(mAdapter);
 
+        // TODO (1) Create and set a click listener on the gridView
+        // TODO (2) On a click, display what position was clicked in a Toast
+
+        // TODO (4) After adding a "Next" button in the fragment layout, make that button launch an AndroidMeActivity
+
         return rootView;
     }
 

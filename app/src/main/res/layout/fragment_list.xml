@@ -25,3 +25,5 @@
     android:stretchMode="columnWidth"
     android:verticalSpacing="8dp">
 </GridView>
+
+<!-- TODO (3) Make the list fragment into a linear layout and add a "Next" button at the bottom -->
