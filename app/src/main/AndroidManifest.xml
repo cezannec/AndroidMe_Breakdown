@@ -12,14 +12,16 @@
         <!-- Maintain the backstack of fragments during configuration changes -->
         <activity android:name=".ui.AndroidMeActivity"
             android:configChanges="orientation|keyboardHidden|screenSize" >
+        </activity>
+
+        <!-- Declare the MasterListActivity in the manifest and set it to launch upon opening this app -->
+        <activity android:name=".ui.MasterListActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <!-- TODO (3) Declare the MasterListActivity in the manifest and set it to launch upon opening this app -->
     </application>
 
 </manifest>
