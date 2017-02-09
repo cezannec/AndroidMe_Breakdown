@@ -26,6 +26,18 @@ import com.example.android.androidme_breakdown.data.AndroidImageAssets;
 
 public class AndroidMeActivity extends AppCompatActivity {
 
+    // TODO (1) Create a new class called ListFragment which will display a GridView list of ALL AndroidMe images
+    // In the fragment class, you'll need to implement an empty constructor, and onCreateView
+
+    // TODO (2) Create the corresponding fragment_list.xml layout file; this should be a GridView
+
+    // TODO (3) Back in the ListFragment class, create a new MasterListAdapter
+    // The MasterListAdapter code is provided; it creates the ImageViews that are contained in the GridView
+    // The adapter takes as parameters (Context context, List<Integer> imageIds)
+
+    // TODO (4) Set the adapter for the GridView to be the newly created MasterListAdapter
+
+
     // Keep track of the number of clicks
     private int mClickCount;
 
