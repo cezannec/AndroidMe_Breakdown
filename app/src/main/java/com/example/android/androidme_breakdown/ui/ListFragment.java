@@ -31,6 +31,10 @@ import com.example.android.androidme_breakdown.data.AndroidImageAssets;
 // The list appears as a grid of images
 public class ListFragment extends Fragment {
 
+    // TODO (1) Create a new Activity named MasterListActivity
+    // TODO (2) Create a corresponding layout file activity_master_list.xml that displays a ListFragment
+    // Remember, to display a fragment in a layout file, use the <fragment> tag
+
     // Mandatory empty constructor
     public ListFragment() {
     }
