@@ -35,6 +35,11 @@ import com.example.android.androidme_breakdown.data.AndroidImageAssets;
 // The list appears as a grid of images
 public class ListFragment extends Fragment {
 
+    // Keeping track of the last clicked index for each AndroidMe body part
+    private int headPosition;
+    private int bodyPosition;
+    private int legPosition;
+
     // Mandatory empty constructor
     public ListFragment() {
     }
@@ -56,18 +61,52 @@ public class ListFragment extends Fragment {
         // Set the adapter on the GridView
         gridView.setAdapter(mAdapter);
 
+        // Creating a new Intent object here instead of inside the button click code
+        // Then we'll be able to put information in the intent in the gridView onItemClickListener code
+        final Intent intent = new Intent(getActivity(), AndroidMeActivity.class);
+
         // This creates and sets a click listener on the gridView
         gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
                 // Display a short Toast that shows the clicked on position
-                Toast.makeText(getContext(), "Position clicked = " + position, Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getContext(), "Position clicked = " + position, Toast.LENGTH_SHORT).show();
 
-                // TODO (1) Create a Bundle that contains information about which head, body, and leg images have been clicked
+                // Create a Bundle that contains information about which head, body, and leg images have been clicked
                 // So there should be three pieces of information in the Bundle
                 // This will help set all image resources in the AndroidMe activity
-                // TODO (2) Attach the Bundle to an intent
+
+                // Using the fact that there are 12 of each head, body, and leg images, we can
+                // identify the correct body part that they are linked to based on the currentPosition/12
+                // (This code also rounds down to the nearest int)
+                int bodyPartIndex = position /12;
+
+                // Modify the position so that it falls in the range of items in each image List
+                int currentPosition = position - 12*bodyPartIndex;
+
+                // Set the currently displayed item for the correct body part fragment
+                switch(bodyPartIndex) {
+                    case 0: //intent.putExtra("head", currentPosition);
+                        headPosition = currentPosition;
+                        break;
+                    case 1: //intent.putExtra("body", currentPosition);
+                        bodyPosition = currentPosition;
+                        break;
+                    case 2: //intent.putExtra("leg", currentPosition);
+                        legPosition = currentPosition;
+                        break;
+                    default: break;
+                }
+
+                // For phone and tablet layouts, pass information in the intent
+                Bundle b = new Bundle();
+                b.putInt("head", headPosition);
+                b.putInt("body", bodyPosition);
+                b.putInt("leg", legPosition);
+
+                // Attach the Bundle to an intent
+                intent.putExtras(b);
 
             }
         });
@@ -77,8 +116,7 @@ public class ListFragment extends Fragment {
         nextButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // TODO (3) Launch the intent created in step 2 by clicking on the "Next" button
-                Intent intent = new Intent(getActivity(), AndroidMeActivity.class);
+                // Launch the intent created above by clicking on the "Next" button
                 startActivity(intent);
             }
         });
