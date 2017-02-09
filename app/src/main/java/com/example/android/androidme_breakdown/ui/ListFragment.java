@@ -16,12 +16,16 @@
 
 package com.example.android.androidme_breakdown.ui;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.GridView;
+import android.widget.Toast;
 
 import com.example.android.androidme_breakdown.R;
 import com.example.android.androidme_breakdown.data.AndroidImageAssets;
@@ -52,10 +56,26 @@ public class ListFragment extends Fragment {
         // Set the adapter on the GridView
         gridView.setAdapter(mAdapter);
 
-        // TODO (1) Create and set a click listener on the gridView
-        // TODO (2) On a click, display what position was clicked in a Toast
+        // This creates and sets a click listener on the gridView
+        gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
-        // TODO (4) After adding a "Next" button in the fragment layout, make that button launch an AndroidMeActivity
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
+                // Display a short Toast that shows the clicked on position
+                Toast.makeText(getContext(), "Position clicked = " + position, Toast.LENGTH_SHORT).show();
+
+            }
+        });
+
+        // The "Next" button launches a new AndroidMeActivity
+        Button nextButton = (Button) rootView.findViewById(R.id.nextButton);
+        nextButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), AndroidMeActivity.class);
+                startActivity(intent);
+            }
+        });
 
         return rootView;
     }
