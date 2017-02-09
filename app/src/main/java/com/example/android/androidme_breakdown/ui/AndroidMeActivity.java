@@ -25,7 +25,7 @@ import com.example.android.androidme_breakdown.R;
 import com.example.android.androidme_breakdown.data.AndroidImageAssets;
 
 public class AndroidMeActivity extends AppCompatActivity {
-    
+
     // Keep track of the number of clicks
     private int mClickCount;
 
@@ -38,6 +38,10 @@ public class AndroidMeActivity extends AppCompatActivity {
         // If there is no saved fragment state, set the fragment image resource id to be
         // the first image in the head, body, and leg image lists
         if (savedInstanceState == null) {
+
+            // TODO (4) Update these three fragments, so that they are set to the correct resource as specified in the intent
+            // The intent may not always have a selected value for the head, body, and leg index
+            // So, if the intent does not include a value, set the default index to be the first image the array at index 0
 
             // Creating a new head BodyPartFragment
             BodyPartFragment headFragment = new BodyPartFragment();

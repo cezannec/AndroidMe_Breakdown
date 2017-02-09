@@ -64,6 +64,11 @@ public class ListFragment extends Fragment {
                 // Display a short Toast that shows the clicked on position
                 Toast.makeText(getContext(), "Position clicked = " + position, Toast.LENGTH_SHORT).show();
 
+                // TODO (1) Create a Bundle that contains information about which head, body, and leg images have been clicked
+                // So there should be three pieces of information in the Bundle
+                // This will help set all image resources in the AndroidMe activity
+                // TODO (2) Attach the Bundle to an intent
+
             }
         });
 
@@ -72,6 +77,7 @@ public class ListFragment extends Fragment {
         nextButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                // TODO (3) Launch the intent created in step 2 by clicking on the "Next" button
                 Intent intent = new Intent(getActivity(), AndroidMeActivity.class);
                 startActivity(intent);
             }
